@@ -1,5 +1,5 @@
 from sqlite3 import Connection
-from typing import Dict
+from typing import Dict, Tuple
 
 
 class TripsRepository:
@@ -26,4 +26,31 @@ class TripsRepository:
         )
 
         # Commit the transaction
+        self.__connection_database.commit()
+
+    def find_trip_by_id(self, trip_id: str) -> Tuple:
+        cursor = self.__connection_database.cursor()
+
+        cursor.execute(
+            """
+                SELECT * FROM trips WHERE id = ?
+            """,
+            (trip_id,),
+        )
+
+        # Fetchone() returns the next row of a query result set, returning a single sequence, or None when no more data is available.
+        trip = cursor.fetchone()
+
+        return trip
+
+    def update_trip_status(self, trip_id: str) -> None:
+        cursor = self.__connection_database.cursor()
+
+        cursor.execute(
+            """
+                UPDATE trips SET status = 1 WHERE id = ?
+            """,
+            (trip_id,),
+        )
+
         self.__connection_database.commit()
