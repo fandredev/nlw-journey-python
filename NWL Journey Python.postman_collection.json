@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "37d300ad-de7a-4989-a54b-be22223502ae",
+		"name": "NWL Journey Python",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7059246",
+		"_collection_link": "https://bold-spaceship-399240.postman.co/workspace/My-Workspace~eda438f2-214b-4ecf-8d84-b02b922c88b1/collection/7059246-37d300ad-de7a-4989-a54b-be22223502ae?action=share&source=collection_link&creator=7059246"
+	},
+	"item": [
+		{
+			"name": "Create Trip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 201\", function () {",
+							"    pm.expect(pm.response.code).to.equal(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.id).to.exist;",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"destination\":\"Foz do Iguaçu\",\n    \"start_date\":\"01-07-2024\",\n    \"end_date\":\"10-07-2024\",\n    \"owner_name\": \"John Doe\",\n    \"owner_email\":\"jhon@gmail.com\",\n    \"emails_to_invite\": [\n        \"cris@gmail.com\",\n        \"julia@gmail.com\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/trips",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"trips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm trip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 204\", function () {",
+							"    pm.expect(pm.response.code).to.equal(204);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"destination\":\"Foz do Iguaçu\",\n    \"start_date\":\"01-07-2024\",\n    \"end_date\":\"10-07-2024\",\n    \"owner_name\": \"John Doe\",\n    \"owner_email\":\"jhon@gmail.com\",\n    \"emails_to_invite\": [\n        \"cris@gmail.com\",\n        \"julia@gmail.com\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/trips/{{TRIP_ID}}/confirm",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"trips",
+						"{{TRIP_ID}}",
+						"confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Trip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/trips/{{TRIP_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"trips",
+						"{{TRIP_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Link",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.message).to.exist;",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"link\": \"meuhotel.com\",\n    \"title\": \"hotel de hospedaria\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/trips/{{TRIP_ID}}/links",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"trips",
+						"{{TRIP_ID}}",
+						"links"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

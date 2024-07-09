@@ -43,13 +43,6 @@ pip install -r requirements.txt
 python run.py
 ```
 
-## Open development server
-<h4>
-Open browser and put http://127.0.0.1:3000/ in URL browser.
-</h4>
-<br>
-
-
 ## Run ALL tests with pytest
 
 ``` 
@@ -67,6 +60,12 @@ coverage html
 ```
 <h4>After that, open the htmlcov folder and look for the index.html file.
 Open it in your browser and the project coverage will be there</h4>
+
+
+## Open coverage cover in terminal
+```bash
+coverage report -m
+```
 
 
 ## Feedback
