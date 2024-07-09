@@ -66,9 +66,15 @@ Open it in your browser and the project coverage will be there</h4>
 ```bash
 coverage report -m
 ```
+
+## Use collection
+<h4>Use NWL Journey Python.postman_collection file to use the project routes</h4>
+
 ![image](https://github.com/fandredev/nlw-journey-python/assets/49297012/d4481a73-c82a-425a-90fc-e16744de0080)
 
 ![image](https://github.com/fandredev/nlw-journey-python/assets/49297012/aa3de447-59e0-47a3-ae3b-eab16d37047a)
+<br>
+
 
 ## Feedback
 
