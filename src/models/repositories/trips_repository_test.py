@@ -11,7 +11,9 @@ trip_id = str(uuid())
 faker = Faker()
 
 
-@pytest.mark.skip(reason="Interactive with database")
+@pytest.mark.skip(
+    reason="Interactive with database, not use 'cause errors from unique constraints they can occur"
+)
 def test_create_trip():
     connection = db_connection_handler.get_connection()
     trips_repository = TripsRepository(connection)
@@ -28,7 +30,9 @@ def test_create_trip():
     trips_repository.create_trip(trips_infos)
 
 
-@pytest.mark.skip(reason="Interactive with database")
+@pytest.mark.skip(
+    reason="Interactive with database, not use 'cause errors from unique constraints they can occur"
+)
 def test_find_trip_by_id():
     connection = db_connection_handler.get_connection()
     trips_repository = TripsRepository(connection)
