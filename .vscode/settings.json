@@ -1,0 +1,13 @@
+{
+    "files.exclude": {
+        "**/*.pyc": {
+            "when": "$(basename).py"
+        },
+        "**/__pycache__": true,
+        "**/*.pytest_cache": true,
+    },
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+    }
+}
