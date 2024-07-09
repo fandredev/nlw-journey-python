@@ -2,10 +2,9 @@ import pytest
 from .trips_repository import TripsRepository
 from src.models.settings.db_connection_handler import db_connection_handler
 from uuid import uuid4 as uuid
-from datetime import datetime, timedelta
+from datetime import datetime
 from faker import Faker
 
-from pytest import mark
 
 db_connection_handler.connect()
 trip_id = str(uuid())
