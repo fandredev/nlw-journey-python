@@ -30,5 +30,4 @@ class TripFinder:
         except Exception as exception:
             return {
                 "body": {"message": str(exception), "error": HTTPStatus.BAD_REQUEST},
-                "status_code": HTTPStatus.BAD_REQUEST,
             }
