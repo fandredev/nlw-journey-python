@@ -74,7 +74,7 @@ Open it in your browser and the project coverage will be there</h4>
 If you have any feedback, please let us know via profissionalf.andre@gmail.com
 
 ## Referencies
-
- - [Flask documentation](https://flask.palletsprojects.com/en/3.0.x/)
+ - [Rocketseat](https://www.linkedin.com/school/rocketseat)
+ - [Flask](https://flask.palletsprojects.com/en/3.0.x/)
  - [Python](https://www.python.org/)
  - [Pytest](https://docs.pytest.org/)
