@@ -1,5 +1,6 @@
 blinker==1.8.2
 click==8.1.7
+coverage==7.5.4
 Faker==26.0.0
 Flask==3.0.3
 iniconfig==2.0.0
