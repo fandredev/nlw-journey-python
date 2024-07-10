@@ -117,7 +117,7 @@ def create_activity(trip_id: str):
 
 
 @trips_routes_blueprint.route("/trips/<trip_id>/activities", methods=["GET"])
-def get_trip_participants(trip_id: str):
+def get_trip_activities(trip_id: str):
     connection = db_connection_handler.get_connection()
     activities_repository = ActivitiesRepository(connection)
 
