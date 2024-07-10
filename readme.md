@@ -43,6 +43,18 @@ pip install -r requirements.txt
 python run.py
 ```
 
+## To create a fake email in Ethereal
+
+``` 
+python create_email.py
+``` 
+
+<h3> Please, check the .env.example to change your informations for send_email to work correctly
+
+
+![Variaveis de ambiente do projeto para envio de email](ethereal.png)
+
+
 ## Run ALL tests with pytest
 
 ``` 
@@ -74,12 +86,6 @@ coverage report -m
 
 ![image](https://github.com/fandredev/nlw-journey-python/assets/49297012/aa3de447-59e0-47a3-ae3b-eab16d37047a)
 <br>
-
-## To create a fake email in Ethereal
-
-``` 
-python create_email.py
-``` 
 
 
 ## Feedback

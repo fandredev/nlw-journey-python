@@ -5,13 +5,19 @@ from email.mime.text import MIMEText
 from faker import Faker
 from typing import List
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+import os
+
 
 def send_email(to_addrs: List[str], body):
     faker = Faker()
-    from_addr = "bs6w2yi4gtyxpc2s@ethereal.email"
-    login = "bs6w2yi4gtyxpc2s@ethereal.email"
+    from_addr = os.getenv("ETHEREAL_LOGIN")
+    login = os.getenv("ETHEREAL_LOGIN")
 
-    password = "E3h1j7wPbSfAYES22J"
+    password = os.getenv("ETHEREAL_PASSWORD")
 
     message = MIMEMultipart()
     message["From"] = faker.email()
