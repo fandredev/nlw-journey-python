@@ -92,9 +92,9 @@ coverage report -m
 
 If you have any feedback, please let us know via profissionalf.andre@gmail.com
 
-## Referencies
+## References
  - [Rocketseat](https://www.linkedin.com/school/rocketseat)
  - [Flask](https://flask.palletsprojects.com/en/3.0.x/)
  - [Python](https://www.python.org/)
  - [Pytest](https://docs.pytest.org/)
- - [Ethereal email]([https://docs.pytest.org/](https://ethereal.email/))
+ - [Ethereal email](https://ethereal.email/)
