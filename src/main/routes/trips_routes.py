@@ -7,9 +7,16 @@ from src.controllers.trip_confirm import TripConfirm
 from src.controllers.link_creator import LinkCreator
 from src.controllers.link_finder import LinkFinder
 
+from src.controllers.participant_creator import ParticipantCreator
+
+from src.controllers.activity_creator import ActivityCreator
+
+
 from src.models.repositories.trips_repository import TripsRepository
 from src.models.repositories.emails_to_invite_repository import EmailsToInviteRepository
 from src.models.repositories.links_repository import LinksRepository
+from src.models.repositories.participants_repository import ParticipantsRepository
+from src.models.repositories.activities_repository import ActivitiesRepository
 
 from src.models.settings.db_connection_handler import db_connection_handler
 
@@ -75,5 +82,32 @@ def find_trip_link(trip_id: str):
     controller_link_finder = LinkFinder(links_repository)
 
     response = controller_link_finder.find(trip_id)
+
+    return jsonify(response["body"]), response["status_code"]
+
+
+@trips_routes_blueprint.route("/trips/<trip_id>/invites", methods=["POST"])
+def invite_to_trip(trip_id: str):
+    connection = db_connection_handler.get_connection()
+    emails_repository = EmailsToInviteRepository(connection)
+    participants_repository = ParticipantsRepository(connection)
+
+    controller_participant_creator = ParticipantCreator(
+        participants_repository, emails_repository
+    )
+
+    response = controller_participant_creator.create(request.json, trip_id)
+
+    return jsonify(response["body"]), response["status_code"]
+
+
+@trips_routes_blueprint.route("/trips/<trip_id>/activities", methods=["POST"])
+def create_activity(trip_id: str):
+    connection = db_connection_handler.get_connection()
+    activities_repository = ActivitiesRepository(connection)
+
+    controller_activity_creator = ActivityCreator(activities_repository)
+
+    response = controller_activity_creator.create(request.json, trip_id)
 
     return jsonify(response["body"]), response["status_code"]
