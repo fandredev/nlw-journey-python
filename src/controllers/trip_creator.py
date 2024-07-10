@@ -4,6 +4,8 @@ from typing import Dict
 from uuid import uuid4
 from http import HTTPStatus
 
+from src.drivers.email_sender import send_email
+
 
 class TripCreator:
     def __init__(
@@ -31,6 +33,9 @@ class TripCreator:
                     self.__emails_repository.registry_email(
                         {"email": email, "trip_id": trip_id, "id": str(uuid4())}
                     )
+            send_email(
+                [body["owner_email"]], f"http://localhost:3000/trips/{trip_id}/confirm"
+            )
             return {
                 "body": {"id": trip_id},
                 "status_code": HTTPStatus.CREATED,
