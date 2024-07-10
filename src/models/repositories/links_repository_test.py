@@ -13,7 +13,7 @@ faker = Faker()
 @pytest.mark.skip(
     reason="Interactive with database, not use 'cause errors from unique constraints they can occur"
 )
-def test_registry_email():
+def test_registry_link():
     connection = db_connection_handler.get_connection()
     links_repository = LinksRepository(connection)
 
@@ -30,7 +30,7 @@ def test_registry_email():
 @pytest.mark.skip(
     reason="Interactive with database, not use 'cause errors from unique constraints they can occur"
 )
-def test_find_emails_from_trip_when_created_register_link():
+def test_find_links_from_trip_when_created_register_link():
     connection = db_connection_handler.get_connection()
     links_repository = LinksRepository(connection)
 
