@@ -75,6 +75,12 @@ coverage report -m
 ![image](https://github.com/fandredev/nlw-journey-python/assets/49297012/aa3de447-59e0-47a3-ae3b-eab16d37047a)
 <br>
 
+## To create a fake email in Ethereal
+
+``` 
+python create_email.py
+``` 
+
 
 ## Feedback
 
