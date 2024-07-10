@@ -41,3 +41,17 @@ class ParticipantsRepository:
         participants = cursor.fetchall()
 
         return participants
+
+    def update_participant_status(self, participant_id: str) -> None:
+        cursor = self.__connection_database.cursor()
+
+        cursor.execute(
+            """
+                UPDATE participants 
+                SET is_confirmed = 1
+                WHERE id = ?
+            """,
+            (participant_id,),
+        )
+
+        self.__connection_database.commit()
