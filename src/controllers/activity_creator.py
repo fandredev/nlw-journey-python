@@ -1,46 +1,34 @@
 from uuid import uuid4
 from typing import Dict
-from src.models.repositories.participants_repository import ParticipantsRepository
-from src.models.repositories.emails_to_invite_repository import EmailsToInviteRepository
+from src.models.repositories.activities_repository import ActivitiesRepository
 from http import HTTPStatus
 
 
-class ParticipantCreator:
+class ActivityCreator:
     def __init__(
         self,
-        participant_repository: ParticipantsRepository,
-        emails_to_invite_repository: EmailsToInviteRepository,
+        activities_repository: ActivitiesRepository,
     ):
-        self.__participant_repository = participant_repository
-        self.__emails_to_invite_repository = emails_to_invite_repository
+        self.__activities_repository = activities_repository
 
     def create(self, body, trip_id: str) -> Dict:
 
         try:
-            participant_id = str(uuid4())
-            email_id = str(uuid4())
-
-            emails_infos = {
-                "email": body["email"],
-                "id": email_id,
+            id = str(uuid4())
+            activities_infos = {
+                "id": id,
                 "trip_id": trip_id,
+                "title": body["title"],
+                "occurs_at": body["occurs_at"],
             }
 
-            participant_infos = {
-                "id": participant_id,
-                "trip_id": trip_id,
-                "emails_to_invite_id": email_id,
-                "name": body["name"],
-            }
-
-            self.__emails_to_invite_repository.registry_email(emails_infos)
-            self.__participant_repository.registry_participant(participant_infos)
+            self.__activities_repository.registry_activity(activities_infos)
 
             return {
                 "body": {
-                    "participant_id": participant_id,
+                    "activity_id": id,
                 },
-                "status": HTTPStatus.CREATED,
+                "status_code": HTTPStatus.CREATED,
             }
         except Exception as exception:
             return {

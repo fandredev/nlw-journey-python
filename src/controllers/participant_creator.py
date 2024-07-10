@@ -40,7 +40,7 @@ class ParticipantCreator:
                 "body": {
                     "participant_id": participant_id,
                 },
-                "status": HTTPStatus.CREATED,
+                "status_code": HTTPStatus.CREATED,
             }
         except Exception as exception:
             return {
