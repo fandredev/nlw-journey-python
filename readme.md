@@ -1,6 +1,6 @@
 ## Stack used
 
-<img src="https://skillicons.dev/icons?i=python,flask,githubactions&theme=dark" />
+<img src="https://skillicons.dev/icons?i=python,flask,githubactions,postman,vscode,sqlite,ubuntu&theme=dark" />
 <br>
 
 **Tests:** Pytest
