@@ -11,6 +11,9 @@
 [@fandredev](https://www.linkedin.com/in/devfandre/)
 
 
+## Version used
+- Check the .tool-versions file to understand the Python version used in the project
+
 ## Installation:
 ### First, clone this repository.
 ```bash
@@ -26,8 +29,6 @@ python -m venv venv
 ```bash
 python3 -m venv venv
 ```
-
-## Activate the virtual environment
 
 ```bash
 source venv/bin/activate
